@@ -1,0 +1,30 @@
+  229  mkdir Reto; code Reto
+  230  code reto
+  231  code ./Reto
+  232  history 
+  233  cd desktop
+  234  mkdir -p Taller_clase_3/Archivos/Textos_planos
+  235  cd ./taller_clase_4/Archivos
+  236  mkdir -p Taller_clase_3/Archivos/Textos_planos
+  237  cd ./taller_clase_3/Archivos
+  238  mkdir Pdf
+  239  cd pdf
+  240  curl -o Explicacion.pdf https://www.um.es/innova/OCW/informatica-para-universitarios/ipu_docs/la_shell/bash.pdf
+  241  cd ..
+  242  cd..
+  243  cd ..
+  244  mkdir Mover_imagen1_aqui
+  245  cd ./Archivos/Textos_planos
+  246  touch Texto_plano.txt
+  247  echo "Hola texto plano" > Texto_plano.txt
+  248  cp Texto_plano.txt ./Texto_plano1.txt
+  249  cd ..
+  250  cd ..
+  251  curl -o Challenge.png https://cms.rootstack.com/sites/default/files/inline-images/Python-Symbol_0.png
+  252  mv Challenge.png ./Mover_imagen1_aqui
+  253  cd ..
+  254  tree ./ > structure.txt
+  255  echo "EL PROFE RIFA Y LO TQM<3" >> structure.txt
+  256  mv structure.txt ./Taller_clase_3
+  257  history | tail -30
+  258  history | tail -30 > historial.txt
