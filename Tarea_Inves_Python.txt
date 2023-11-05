@@ -1,0 +1,133 @@
+------------------------------------------------------------------------------------------------------------
+PEP8
+------------------------------------------------------------------------------------------------------------
+
+¿QUÉ ES?
+Se define la guía de cómo escribir Python de forma correcta, a modo de guía de estilos del lenguaje. PEP 8 
+es la guía de estilos de Python, es un documento que contiene los lineamientos necesarios para que el código 
+en Python sea legible y consistente. 
+
+¿PARA QUE SIRVE?
+La PEP8 sirve como una guia para poder escribir código de manera correcta en Python, abarca desde 
+variables, organización de código, importaciones de paquetes, comentarios en código, etc.
+Python define en la PEP8 las normas estilísticas a seguir para cualquier código parte de la librería 
+estándar, por lo que queda al criterio de cada uno usar estas recomendaciones o no. Sin embargo, 
+prácticamente cualquier código o librería usado por gran cantidad de personas, emplea estas recomendaciones, 
+al haber un amplio consenso en la comunidad.
+
+¿COMO FUNCIONA?
+Funciona para que cualquiera que lo lea o siga las indicaciones pueda aprender a seguir o crear un 
+estandar para sus futuros programas y pueda mejorar como programador.
+
+EJEMPLO APLICANDO LA PEP8
+------------------------------------------------------------------------------------------------------------
+# script.py
+def mi_funcion_suma(a, b, c, imprime=True):
+    resultado = a + b + a
+    if imprime:
+        print(resultado)
+    return resultado
+
+
+a = 4
+variable_b = 5
+var_c = 10
+
+mi_funcion_suma(a, variable_b, var_c)
+
+------------------------------------------------------------------------------------------------------------
+MODULOS Y PAQUETES 
+------------------------------------------------------------------------------------------------------------
+
+¿QUÉ SON LOS MÓDULOS?
+Un módulo es un archivo de Python cuyos objetos (funciones, clases, excepciones, etc.) pueden ser accedidos 
+desde otro archivo. Se trata simplemente de una forma de organizar grandes códigos. Un módulo puede contener 
+tanto declaraciones ejecutables como definiciones de funciones. Estas declaraciones están pensadas para 
+inicializar el módulo. Se ejecutan únicamente la primera vez que el módulo se encuentra en una declaración 
+import. 
+
+¿QUÉ SON LOS PAQUETES?
+Un paquete es una carpeta que contiene varios módulos. Los Paquetes son una forma de estructurar el 
+espacio de nombres de módulos de Python usando «nombres de módulo con puntos». Por ejemplo, el nombre del 
+módulo A.B designa un submódulo B en un paquete llamado A .
+
+DIFERENCIAS
+Un módulo es una unidad de software que provee una función. Podemos exportar librerías como módulos 
+para integrarlas a nuestro código, o crear módulos para dividir nuestro código en partes y que sea 
+más fácil de manejar. Un paquete es un archivo o folder que puede contener uno o más módulos.
+
+EJEMPLO DE MÓDULOS
+------------------------------------------------------------------------------------------------------------
+Consideremos, por ejemplo, un archivo aritmetica.py que contenga las siguientes definiciones.
+
+def sumar(a, b):
+    return a + b
+
+def restar(a, b):
+    return a - b
+
+def mult(a, b):
+    return a * b
+
+def div(a, b):
+    return a / b
+
+
+Podemos acceder a ellas desde otro archivo de Python ubicado en la misma ruta importando el módulo.
+
+import aritmetica
+
+print(aritmetica.sumar(7, 5))
+
+EJEMPLO DE PAQUETES
+------------------------------------------------------------------------------------------------------------
+Siguiendo el ejemplo anterior, podemos diseñar un paquete matematica creando una carpeta con la 
+siguiente estructura.
+
+matematica/
+    |-- __init__.py
+    |-- aritmetica.py
+    |-- geometria.py
+
+Debe contener siempre un archivo __init__.py (por el momento vacío) para que Python entienda que se 
+trata de un paquete y no de una simple carpeta. Así, podemos acceder a alguno de los módulos del 
+paquete de la siguiente manera.
+
+import matematica.aritmetica
+
+print(matematica.aritmetica.sumar(7, 5))
+
+------------------------------------------------------------------------------------------------------------
+ENTORNOS VIRTUALES 
+------------------------------------------------------------------------------------------------------------
+
+¿QUÉ SON?
+Un entorno virtual es un entorno Python en el que el intérprete Python, las bibliotecas y los scripts
+ instalados en él están aislados de los instalados en otros entornos virtuales, y (por defecto) cualquier 
+biblioteca instalada en un «sistema» Python, es decir, uno que esté instalado como parte de tu 
+sistema operativo.
+Un entorno virtual es un árbol de directorios que contiene archivos ejecutables de Python y otros 
+archivos que indican que es un entorno virtual.
+
+¿COMO FUNCIONAN?
+Una razón para usar entornos virtuales es si por ejemplo tenemos muchos proyectos que utilizan una versión
+ específica de una librería, pero queremos probar una versión más reciente de dicha librería sin crear 
+errores en nuestros proyectos existentes.
+
+Para la creación de entornos virtuales se recomienda utilizar el módulo venv, el cual viene instalado por 
+defecto con la librería estándar de Python desde la versión 3.3. Por otro lado, la instalación de paquetes 
+se realiza mediante la herramienta pip, la cual viene incluida por defecto a partir de Python 3.4.
+
+EJEMPLO VENV
+------------------------------------------------------------------------------------------------------------
+La creación de entornos virtuales se hace ejecutando el comando venv:
+
+python3 -m venv /path/to/new/virtual/environment
+
+Al ejecutar este comando se crea el directorio de destino (creando cualquier directorio padre que todavía 
+no exista) y coloca un archivo pyvenv.cfg en él con una clave home apuntando a la instalación Python desde 
+la que el comando se lanzó (un nombre común para el directorio destino es .venv). También crea un 
+subdirectorio bin (o Scripts en Windows) conteniendo una copia/enlace simbólico del binario/s Python 
+(según lo apropiado para la plataforma o los argumentos usados en el momento de la creación del entorno). 
+También crea un directorio (inicialmente vacío) lib/pythonX.Y/site-packages (en Windows, este es 
+Lib\site-packages). Si se especifica un directorio existente, será reutilizado.
